@@ -100,11 +100,11 @@ class BaseTool(object):
         self.logger.addHandler(filehandler)
         self.logger.setLevel(levels[os.environ.get("LOG_LEVEL", level)])
 
-    def _run_command(self, command: str, expected_output: str) -> bool:
+    def _run_command(self, command: str, expected_output: str = "") -> bool:
         """
         Run a command.
         """
-        found_expected_output = False
+        found_expected_output = expected_output == ""
 
         cmd = command.split()
 
@@ -158,7 +158,7 @@ class BaseTool(object):
                     for script_check in self.platforms[each_platform]["command_checks"]:
                         found = self._run_command(
                             command=script_check["command"],
-                            expected_output=script_check["output_has"],
+                            expected_output=script_check.get("output_has", ""),
                         )
                         if not found:
                             self.logger.info(f"    {script_check['command']} failed.")
