@@ -8,7 +8,7 @@ setuptools.setup(
     version="0.4.2",
     author="Micah Snyder",
     author_email="micasnyd@cisco.com",
-    copyright="Copyright (C) 2025 Cisco Systems, Inc. and/or its affiliates. All rights reserved.",
+    license="Apache-2.0",
     description="Mussels Dependency Build Automation Tool",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -32,7 +32,6 @@ setuptools.setup(
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: Apache Software License",
         "Operating System :: OS Independent",
     ],
 )
